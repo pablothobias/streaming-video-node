@@ -188,9 +188,3 @@ curl -H "Range: bytes=0-1024" http://localhost:3001/api/videos/sample.mp4/stream
 - [AWS SDK v3 for JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/)
 - [MDN - HTTP Range requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests)
 - [Node.js Cluster Docs](https://nodejs.org/api/cluster.html)
-
----
-
-## ✌️ License
-
-MIT — use freely, learn deeply.
