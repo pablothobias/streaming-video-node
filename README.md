@@ -152,6 +152,32 @@ curl -H "Range: bytes=0-1024" http://localhost:3001/api/videos/sample.mp4/stream
 
 ---
 
+## Dynamic Chunk Size Support
+
+Use the query string to specify the size (in bytes):
+
+```bash
+GET /api/videos/sample.mp4/stream?chunkSize=524288  // 512KB
+GET /api/videos/sample.mp4/stream?chunkSize=2097152 // 2MB
+```
+
+If not provided, the default chunk size is 1 MB (1048576 bytes).
+
+We implemented a custom stream pipe:
+
+```bash
+for await (const chunk of streamToAsyncIterator(s3Stream)) {
+  res.write(chunk);
+}
+res.end();
+```
+
+This allows fine-grained control over:
+
+- Chunk transformation
+- Throttling
+- Memory usage
+
 ## 📋 TODO
 
 - [ ] Add signed URL generation with `@aws-sdk/cloudfront-signer`
