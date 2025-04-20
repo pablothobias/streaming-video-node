@@ -166,7 +166,7 @@ If not provided, the default chunk size is 1 MB (1048576 bytes).
 We implemented a custom stream pipe:
 
 ```bash
-for await (const chunk of streamToAsyncIterator(s3Stream)) {
+for await (const chunk of streamToAsyncIterator(stream, chunkSize)) {
   res.write(chunk);
 }
 res.end();
