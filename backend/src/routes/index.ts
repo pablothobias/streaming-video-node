@@ -1,1 +1,1 @@
-export { default as videoRoutes } from './video.routes'
+export { default as videoRoutes } from "./video.routes";

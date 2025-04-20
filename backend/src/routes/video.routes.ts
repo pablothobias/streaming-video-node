@@ -1,11 +1,11 @@
-import { Router } from 'express'
+import { Router } from "express";
+import asyncHandler from "express-async-handler";
 
-import { streamVideo } from '../controllers/video.controller'
-import getVideoUrl from '../services/cdn.service'
+import { getVideoUrl, streamVideo } from "../controllers/video.controller";
 
-const router = Router()
+const router = Router();
 
-router.get('/:key/stream', streamVideo)
-router.get('/:key/url', getVideoUrl)
+router.get("/:key/stream", asyncHandler(streamVideo));
+router.get("/:key/url", asyncHandler(getVideoUrl));
 
-export default router
+export default router;
