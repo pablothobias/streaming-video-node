@@ -1,6 +1,4 @@
 .videoContainerCss {
-    width: 100%;
-    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,3 +6,24 @@
     border: 1px solid #000303;
 }
 
+.buttonCss {
+    margin-top: 32px;
+    width: 20vw;
+    padding: 12px 24px;
+    color: #fff;
+    background: linear-gradient(45deg, rgba(20,20,20,1) 10%, rgba(9,9,121,1) 50%, rgba(48,189,217,1) 100%);
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 20px;
+    transition: background-position 0.5s ease, box-shadow 0.5s ease;
+}
+
+.buttonCss:hover {
+    background-position: 100% 50%;
+    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.2);
+}

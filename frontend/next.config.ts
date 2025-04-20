@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   images: {
   remotePatterns: [
     {
-      hostname: 'pbs.twimg.com',
+      hostname: 'i.redd.it',
     },
     {
       protocol: 'http',

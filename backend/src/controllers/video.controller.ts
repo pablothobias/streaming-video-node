@@ -12,8 +12,7 @@ export async function streamVideo(
 ) {
   const { key } = req.params;
   const range = req.headers.range;
-
-  console.log("C H E G U E I :", { key, range });
+  const chunkSize = parseInt(req.query.chunkSize as string) || 1024 * 1024;
 
   if (!range || !key) {
     res
@@ -35,12 +34,13 @@ export async function streamVideo(
       "Access-Control-Allow-Origin": "http://localhost:3000",
     });
 
-    for await (const chunk of streamToAsyncIterator(stream)) {
-      console.log("===== Chunk =====", chunk);
+    for await (const chunk of streamToAsyncIterator(stream, chunkSize)) {
       res.write(chunk);
+      console.log({ chunk });
     }
 
     res.end();
+    return;
   } catch (error) {
     console.error("Stream error:", error);
     res.status(500).send("Error streaming video");
